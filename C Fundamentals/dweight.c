@@ -4,7 +4,6 @@
 int main(void) 
 { 
     float length, width, height, dim_weight;
-#define MEOW 165.0 / 166.0
     // Get the dimensions of the box
     printf("Enter the length of the box (in cm): ");
     scanf("%f", &length);
@@ -14,8 +13,9 @@ int main(void)
     scanf("%f", &height);
 
     // Compute the dimensional weight
-    dim_weight = (length * width * height) * MEOW;
+    dim_weight = ((length * width * height)+165) / 166 ;
 
     // Display the result
     printf("The dimensional weight of the box is: %.2f kg\n", dim_weight);
 }
+
