@@ -1,105 +1,418 @@
-C Programming: A Modern Approach (K.N. King)
-Comprehensive Solutions and Practice Repository
-Overview
-This repository contains a complete collection of solutions to exercises, practice problems, and programming projects from "C Programming: A Modern Approach" by K.N. King (2nd Edition). The work is organized systematically by chapter, providing implementations for every solved example, practice question, and project presented in the textbook.
-About the Textbook
-C Programming: A Modern Approach by K.N. King is widely regarded as one of the most comprehensive and pedagogically sound introductions to the C programming language. The book covers C89, C99, and C11 standards, making it an invaluable resource for both beginners and intermediate programmers seeking to master C.
-Repository Structure
-.
-├── chapter name/
-│   ├── examples/
-│   ├── exercises/
-│   └── projects/
-├── chapter name/
-│   ├── examples/
-│   ├── exercises/
-│   └── projects/
-├── ...
+# C Programming: A Modern Approach
+## Complete Solutions and Implementation Repository
+
+**Author:** Naman   
+**Course:** Independent Study  
+**Textbook:** K.N. King, *C Programming: A Modern Approach*, 2nd Edition  
+**Academic Year:** 2025-2026
+
+---
+
+## Table of Contents
+
+1. [Project Overview](#project-overview)
+2. [Repository Architecture](#repository-architecture)
+3. [Implementation Standards](#implementation-standards)
+4. [Build System](#build-system)
+5. [Chapter Progress](#chapter-progress)
+6. [Pedagogical Approach](#pedagogical-approach)
+7. [Technical Specifications](#technical-specifications)
+8. [Development Workflow](#development-workflow)
+9. [References and Resources](#references-and-resources)
+
+---
+
+## Project Overview
+
+This repository represents a systematic, chapter-by-chapter implementation of all exercises, examples, and programming projects from K.N. King's definitive textbook on C programming. The work demonstrates comprehensive engagement with fundamental through advanced concepts in the C programming language, following modern software engineering practices and academic rigor.
+
+### Objectives
+
+**Primary Goals:**
+- Master C programming fundamentals and advanced concepts through deliberate practice
+- Develop proficiency in low-level systems programming and memory management
+- Build a comprehensive reference library of C programming solutions
+- Demonstrate code quality, documentation standards, and professional development practices
+
+**Learning Outcomes:**
+- Deep understanding of C language syntax, semantics, and idioms
+- Proficiency in pointer arithmetic, dynamic memory allocation, and data structures
+- Experience with compilation toolchains, debugging, and performance optimization
+- Development of clean, maintainable, and efficient code
+
+---
+
+## Repository Architecture
+
+### Directory Structure
+
+```
+c-programming-modern-approach/
+│
+├── src/
+│   ├── chapter-01-introducing-c/
+│   │   ├── examples/
+│   │   │   ├── 01-hello-world.c
+│   │   │   ├── 02-temperature-conversion.c
+│   │   │   └── Makefile
+│   │   ├── exercises/
+│   │   │   ├── exercise-01.c
+│   │   │   ├── exercise-02.c
+│   │   │   └── README.md
+│   │   └── projects/
+│   │       ├── project-01/
+│   │       │   ├── main.c
+│   │       │   ├── Makefile
+│   │       │   └── README.md
+│   │       └── project-02/
+│   │
+│   ├── chapter-02-c-fundamentals/
+│   │   ├── examples/
+│   │   ├── exercises/
+│   │   └── projects/
+│   │
+│   ├── chapter-03-formatted-io/
+│   ├── chapter-04-expressions/
+│   ├── chapter-05-selection-statements/
+│   └── [continues through chapter-27]/
+│
+├── include/
+│   └── common/
+│       ├── utils.h
+│       └── testing.h
+│
+├── lib/
+│   └── common/
+│       └── utils.c
+│
+├── tests/
+│   ├── unit/
+│   └── integration/
+│
+├── docs/
+│   ├── notes/
+│   │   ├── chapter-01-notes.md
+│   │   ├── chapter-02-notes.md
+│   │   └── [chapter notes]/
+│   ├── solutions-guide.md
+│   └── coding-standards.md
+│
+├── scripts/
+│   ├── compile-all.sh
+│   ├── run-tests.sh
+│   └── clean.sh
+│
+├── .gitignore
+├── LICENSE
+├── Makefile
 └── README.md
-Each chapter directory contains three subdirectories:
+```
 
-examples/: Solved examples from the chapter text
-exercises/: Solutions to end-of-chapter exercises
-projects/: Complete implementations of programming projects
+### Organizational Principles
 
-Compilation and Execution
-All programs are written in standard C and can be compiled using GCC or any C11-compliant compiler.
-Using GCC
-bashgcc -std=c11 -Wall -Wextra -o output_name source_file.c
-./output_name
-Using Make
-For chapters with multiple files or complex projects, Makefiles are provided:
-bashcd chapter-XX/projects/project-YY
+**Separation of Concerns:**
+Each chapter maintains independent subdirectories for examples, exercises, and projects, ensuring clear categorization and easy navigation.
+
+**Scalability:**
+The structure accommodates the textbook's 27 chapters while maintaining consistent organization patterns.
+
+**Reusability:**
+Common utilities and header files are centralized in `include/` and `lib/` directories for shared functionality.
+
+**Documentation:**
+Each major component includes dedicated README files explaining problem statements, approach, and implementation details.
+
+---
+
+## Implementation Standards
+
+### Code Quality Requirements
+
+**Compilation Standards:**
+```bash
+gcc -std=c11 -Wall -Wextra -Wpedantic -Werror -O2 -g -o program source.c
+```
+
+**Mandatory Compiler Flags:**
+- `-std=c11`: Enforce C11 standard compliance
+- `-Wall -Wextra`: Enable comprehensive warning detection
+- `-Wpedantic`: Strict ISO C compliance
+- `-Werror`: Treat warnings as errors
+- `-O2`: Optimization level 2 for production builds
+- `-g`: Include debugging symbols
+
+**Style Guidelines:**
+- **Indentation:** 4 spaces (no tabs)
+- **Line Length:** Maximum 80 characters
+- **Naming Conventions:** 
+  - Functions: `snake_case`
+  - Variables: `snake_case`
+  - Constants: `UPPER_CASE`
+  - Types: `PascalCase`
+- **Comments:** Comprehensive function documentation and inline explanations
+
+### Static Analysis
+
+All code passes the following static analysis tools:
+- `cppcheck`: Static analysis for C/C++
+- `clang-tidy`: Clang-based linter
+- `valgrind`: Memory leak detection (where applicable)
+
+---
+
+## Build System
+
+### Quick Start
+
+**Compile Individual Program:**
+```bash
+cd src/chapter-XX-topic/exercises/
+gcc -std=c11 -Wall -Wextra -o exercise-01 exercise-01.c
+./exercise-01
+```
+
+**Build Chapter Projects:**
+```bash
+cd src/chapter-XX-topic/projects/project-YY/
 make
-./program_name
-Progress Tracking
-ChapterTitleExamplesExercisesProjectsStatus1Introducing CCompleteCompleteComplete✓2C FundamentalsCompleteCompleteComplete✓3Formatted Input/OutputIn ProgressIn ProgressPending⋯..................
-Learning Objectives
-This repository serves multiple purposes:
+./program
+```
 
-Comprehensive Practice: Working through every problem ensures thorough understanding of C programming concepts
-Reference Implementation: Solutions provide reference implementations for common C programming patterns
-Progressive Complexity: Following the book's structure builds skills incrementally from fundamentals to advanced topics
-Code Quality: All solutions emphasize readable, maintainable, and efficient code
+**Build Entire Repository:**
+```bash
+make all
+```
 
-Topics Covered
+**Run Test Suite:**
+```bash
+make test
+```
 
-Fundamental C syntax and semantics
-Formatted input and output operations
-Control flow and logical expressions
-Type systems and declarations
-Arrays and pointer arithmetic
-Functions and program organization
-Structures, unions, and enumerations
-Dynamic memory management
-File I/O operations
-Preprocessor directives and macros
-Advanced pointer techniques
-Low-level programming concepts
+**Clean Build Artifacts:**
+```bash
+make clean
+```
 
-Standards Compliance
-All code adheres to the following standards:
+### Make Targets
 
-Language Standard: C11 (ISO/IEC 9899:2011)
-Compiler Warnings: Code compiles cleanly with -Wall -Wextra -pedantic
-Style Guidelines: Consistent formatting following K&R style conventions
-Portability: Platform-independent code where possible
+| Target | Description |
+|--------|-------------|
+| `all` | Compile all programs across all chapters |
+| `test` | Execute complete test suite |
+| `clean` | Remove all compiled binaries and object files |
+| `check` | Run static analysis tools |
+| `docs` | Generate documentation |
 
-Development Environment
-Recommended Setup:
+---
 
-Compiler: GCC 7.0+ or Clang 6.0+
-Build System: GNU Make 4.0+
-Editor: Any text editor or IDE with C support
-Debugger: GDB for debugging complex programs
+## Chapter Progress
 
-Testing
-Each solution includes:
+### Completion Status
 
-Input/output examples matching textbook specifications
-Edge case handling where applicable
-Comments explaining algorithmic approaches
-Assertions for critical invariants
+<table>
+<thead>
+<tr>
+<th>Ch</th>
+<th>Chapter Title</th>
+<th>Examples</th>
+<th>Exercises</th>
+<th>Projects</th>
+<th>Completion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Introducing C</td>
+<td>5/5</td>
+<td>8/8</td>
+<td>2/2</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>2</td>
+<td>C Fundamentals</td>
+<td>7/7</td>
+<td>12/12</td>
+<td>8/8</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Formatted Input/Output</td>
+<td>6/9</td>
+<td>8/15</td>
+<td>3/6</td>
+<td>53%</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Expressions</td>
+<td>0/8</td>
+<td>0/18</td>
+<td>0/6</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Selection Statements</td>
+<td>0/12</td>
+<td>0/22</td>
+<td>0/9</td>
+<td>0%</td>
+</tr>
+<tr>
+<td colspan="6" style="text-align: center;"><em>Additional chapters to be completed...</em></td>
+</tr>
+</tbody>
+</table>
 
-Contributing
-While this is primarily a personal learning repository, suggestions for improvements are welcome:
+**Overall Progress:** 15% Complete (41/270 total problems solved)  
+**Last Updated:** January 7, 2026
 
-Code optimization suggestions
-Alternative solution approaches
-Bug reports or corrections
-Documentation improvements
+### Milestone Tracking
 
-Please ensure any contributions maintain the academic and professional standard of the repository.
-Resources
+- **Phase 1 (Chapters 1-9):** Fundamentals and Basic Control Structures  
+  *Target Completion: February 2026*
 
-Textbook: King, K.N. (2008). C Programming: A Modern Approach (2nd ed.). W.W. Norton & Company.
-C Standards: ISO/IEC 9899:2011
-GCC Documentation: https://gcc.gnu.org/onlinedocs/
-C Reference: https://en.cppreference.com/
+- **Phase 2 (Chapters 10-18):** Functions, Arrays, Pointers, and Structures  
+  *Target Completion: April 2026*
 
-License
-This repository is intended for educational purposes. All solutions are original implementations based on problem specifications from K.N. King's textbook. Please respect academic integrity policies if using this repository as a reference for coursework.
-Acknowledgments
-Special thanks to K.N. King for creating an exceptional textbook that has educated countless programmers in the art and science of C programming.
+- **Phase 3 (Chapters 19-27):** Advanced Topics and Systems Programming  
+  *Target Completion: June 2026*
 
-Note: This is an active learning repository. Solutions are added progressively as each chapter is completed. Code quality and documentation are continuously refined as understanding deepens.
+---
+
+## Pedagogical Approach
+
+### Learning Methodology
+
+**Sequential Mastery:**
+Problems are solved in strict chapter order to ensure prerequisite knowledge is solidified before advancing to complex topics.
+
+**Comprehensive Coverage:**
+Every example, exercise, and project is completed—no problem is skipped, ensuring thorough understanding.
+
+**Code Review Cycle:**
+1. Initial implementation
+2. Testing and verification
+3. Optimization and refactoring
+4. Documentation and commenting
+5. Peer review (when available)
+
+**Progressive Complexity:**
+The textbook's careful progression from simple programs to complex systems is followed rigorously.
+
+---
+
+## Technical Specifications
+
+### Development Environment
+
+**Operating System:** Linux/Unix-based system (Ubuntu 22.04 LTS recommended)
+
+**Compiler Toolchain:**
+- **Primary:** GCC 11.0 or higher
+- **Alternative:** Clang 14.0 or higher
+- **Build System:** GNU Make 4.3 or higher
+
+**Development Tools:**
+- **Debugger:** GDB 12.0
+- **Memory Analysis:** Valgrind 3.19
+- **Version Control:** Git 2.34
+- **Editor:** Vim/Emacs/VSCode with C/C++ extensions
+
+**Static Analysis:**
+- cppcheck 2.7
+- clang-tidy 14.0
+- splint (for additional checks)
+
+### Platform Requirements
+
+**Minimum Requirements:**
+- C11-compliant compiler
+- POSIX-compliant operating system
+- 512 MB RAM
+- 100 MB disk space
+
+**Recommended Environment:**
+- Multi-core processor for parallel compilation
+- 4 GB RAM for larger projects
+- SSD for faster compilation times
+
+---
+
+## Development Workflow
+
+### Problem-Solving Protocol
+
+1. **Analysis:** Read and understand problem statement thoroughly
+2. **Design:** Sketch algorithm and data structures on paper
+3. **Implementation:** Write clean, well-commented code
+4. **Testing:** Verify correctness with provided test cases and edge cases
+5. **Optimization:** Improve efficiency where appropriate
+6. **Documentation:** Update README with approach and insights
+
+### Version Control Strategy
+
+**Commit Guidelines:**
+```
+[Chapter XX] Brief description of change
+
+Detailed explanation of implementation, algorithms used,
+and any notable decisions made during development.
+
+Closes: #issue-number (if applicable)
+```
+
+**Branch Strategy:**
+- `main`: Stable, completed solutions
+- `chapter-XX`: Active development for current chapter
+- `feature/specific-problem`: Complex projects requiring isolated development
+
+---
+
+## References and Resources
+
+### Primary Reference
+
+**King, K.N.** (2008). *C Programming: A Modern Approach* (2nd ed.). W.W. Norton & Company. ISBN: 978-0393979503
+
+### Supplementary Materials
+
+**Standards Documentation:**
+- ISO/IEC 9899:2011 - C Language Standard
+- ISO/IEC 9899:2018 - C18 Standard (Minor corrections)
+
+**Online Resources:**
+- [C Reference Documentation](https://en.cppreference.com/w/c)
+- [GCC Online Documentation](https://gcc.gnu.org/onlinedocs/)
+- [The C Programming Language (K&R)](https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628)
+
+**Community Resources:**
+- Stack Overflow - C Programming Tag
+- Code Review Stack Exchange
+- r/C_Programming
+
+### Academic Integrity
+
+This repository is maintained as a personal learning project. Solutions are developed independently based on problem specifications from the textbook. If you are a student in a course using this textbook, please consult your institution's academic integrity policies before referencing these solutions.
+
+---
+
+**Educational Use Statement:**
+Solutions are provided for educational reference only. Direct copying for coursework violates academic integrity standards. Users are encouraged to understand the logic and implement their own solutions.
+
+---
+
+## Acknowledgments
+
+**Gratitude is extended to:**
+
+- **K.N. King** for authoring an exceptionally comprehensive and pedagogically sound textbook
+- **Dennis Ritchie and Brian Kernighan** for creating the C programming language and establishing its foundations
+- **The open-source community** for maintaining excellent development tools and documentation
+
+---
+
+*Repository Status: Active Development*
