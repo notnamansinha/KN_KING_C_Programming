@@ -1,11 +1,28 @@
 # C Programming: A Modern Approach
-## Complete Solutions and Implementation Repository
+## Complete Self Learned Solutions and Implementation Repository
 
 **Author:** Naman   
 **Course:** Independent Study  
 **Textbook:** K.N. King, *C Programming: A Modern Approach*, 2nd Edition  
 **Academic Year:** 2025-2026
+### Academic Integrity
 
+This repository is maintained as a personal learning project. Solutions are developed independently based on problem specifications from the textbook. If you are a student in a course using this textbook, please consult your institution's academic integrity policies before referencing these solutions.
+
+---
+
+**Educational Use Statement:**
+Solutions are provided for educational reference only. Direct copying for coursework violates academic integrity standards. Users are encouraged to understand the logic and implement their own solutions.
+
+---
+
+## Acknowledgments
+
+**Gratitude is extended to:**
+
+- **K.N. King** for authoring an exceptionally comprehensive and pedagogically sound textbook
+- **Dennis Ritchie and Brian Kernighan** for creating the C programming language and establishing its foundations
+- **The open-source community** for maintaining excellent development tools and documentation
 ---
 
 ## Table of Contents
@@ -402,8 +419,6 @@ All code passes the following static analysis tools:
 
 ---
 
-## Build System
-
 ### Quick Start
 
 **Compile Individual Program:**
@@ -551,23 +566,3 @@ Closes: #issue-number (if applicable)
 - Code Review Stack Exchange
 - r/C_Programming
 
-### Academic Integrity
-
-This repository is maintained as a personal learning project. Solutions are developed independently based on problem specifications from the textbook. If you are a student in a course using this textbook, please consult your institution's academic integrity policies before referencing these solutions.
-
----
-
-**Educational Use Statement:**
-Solutions are provided for educational reference only. Direct copying for coursework violates academic integrity standards. Users are encouraged to understand the logic and implement their own solutions.
-
----
-
-## Acknowledgments
-
-**Gratitude is extended to:**
-
-- **K.N. King** for authoring an exceptionally comprehensive and pedagogically sound textbook
-- **Dennis Ritchie and Brian Kernighan** for creating the C programming language and establishing its foundations
-- **The open-source community** for maintaining excellent development tools and documentation
-
----
