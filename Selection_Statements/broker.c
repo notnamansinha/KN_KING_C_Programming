@@ -38,4 +38,5 @@ int main(void)
     }
 
     printf("Comission: $%.2f\n", comission);
+// hence the work is done i suppose
 }
