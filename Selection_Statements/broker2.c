@@ -7,7 +7,7 @@ int main(void)
     printf("Enter the value of trade: ");
     scanf("%f", &value);
 
-    if (value < 2500.00f)
+    if (value < 2500.00f) // using logic operators as well as relational operatorr
     {
         commission = 30.00f + 0.017f * value;
     }
@@ -37,4 +37,5 @@ int main(void)
     commission = 39.00f;
 }
 printf("Comission: $%.2f\n", commission);
+
 }
