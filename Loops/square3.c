@@ -7,7 +7,8 @@ int main(void)
     printf("Enter the number of entries in the table: ");
     scanf("%d", &n);
 
-// odd method
+// odd method 
+// square of any integer \(n\) is equal to the sum of the first \(n\) odd integers
     i = 1;
     odd = 3;
     for (square = 1; i<=n; odd+=2)
@@ -16,5 +17,6 @@ int main(void)
         ++i;
         square +=odd;
     }
+
 
 }
