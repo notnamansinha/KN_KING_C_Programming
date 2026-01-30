@@ -2,7 +2,7 @@
 
 int main(void)
 {
-    int month, day, year;
+    int month, day, year; // legal form
 
     printf("Enter date (mm/dd//yy): ");
     scanf("%d /%d /%d", &month, &day, &year);
@@ -37,4 +37,5 @@ int main(void)
         case 12: printf("December"); break;
     }
     printf(", 20%d\n", year);
+
 }
