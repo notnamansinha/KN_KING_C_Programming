@@ -544,6 +544,12 @@ Closes: #issue-number (if applicable)
 
 ---
 
+## License
+
+This project is licensed under the [GNU General Public License v3.0](LICENSE). See the [LICENSE](LICENSE) file for details.
+
+---
+
 ## References and Resources
 
 ### Primary Reference
