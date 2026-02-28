@@ -1,0 +1,13 @@
+Copyright Notice for "C Programming: A Modern Approach"
+
+All code examples, exercises, and projects derived directly from the textbook:
+"C Programming: A Modern Approach, 2nd Edition" by K.N. King
+
+Are subject to the copyright of the original author and publisher.
+Copyright (c) 1996, 2008 by W. W. Norton & Company, Inc.
+All rights reserved.
+
+These materials are provided in this repository strictly for educational purposes and personal study. They may not be used for commercial purposes or distributed in a manner that violates the original copyright.
+
+For more information, please refer to the official publisher or the author's website:
+http://knking.com/books/c2/index.html

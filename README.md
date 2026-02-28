@@ -1,18 +1,29 @@
 # C Programming: A Modern Approach
-## Complete Self Learned Solutions and Implementation Repository
+## Complete Self-Learned Solutions and Implementation Repository
+
+<div align="center">
+  <img src="https://img.shields.io/badge/Standard-C11-blue.svg" alt="C11"/>
+  <img src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg" alt="License"/>
+  <img src="https://img.shields.io/badge/Status-Active-success.svg" alt="Status"/>
+  <img src="https://img.shields.io/badge/Platform-Linux%20%7C%20macOS%20%7C%20Windows-lightgrey" alt="Platform"/>
+</div>
 
 **Author:** Naman   
 **Course:** Independent Study  
 **Textbook:** K.N. King, *C Programming: A Modern Approach*, 2nd Edition  
 **Academic Year:** 2025-2026
-### Academic Integrity
 
-This repository is maintained as a personal learning project. Solutions are developed independently based on problem specifications from the textbook. If you are a student in a course using this textbook, please consult your institution's academic integrity policies before referencing these solutions.
+## Copyright, Licensing & Academic Integrity
 
----
+**Book Source Code Notice:**  
+Code adapted or referenced directly from the textbook retains the copyright notice as stated in `book-notice.txt` (originally provided with the book's supplemental materials by K.N. King). Please ensure compliance with the original author's copyright.
 
-**Educational Use Statement:**
-Solutions are provided for educational reference only. Direct copying for coursework violates academic integrity standards. Users are encouraged to understand the logic and implement their own solutions.
+**Repository License:**  
+This project's original code and documentation are licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/). See the [LICENSE](LICENSE) file for more information.
+
+> [!WARNING]
+> **Educational Use Statement:**
+> Solutions are provided for educational reference only. Direct copying for coursework violates academic integrity standards. If you are a student in a course using this textbook, please consult your institution's academic integrity policies before referencing these solutions. Users are encouraged to understand the logic and implement their own solutions.
 
 ---
 
@@ -23,6 +34,7 @@ Solutions are provided for educational reference only. Direct copying for course
 - **K.N. King** for authoring an exceptionally comprehensive and pedagogically sound textbook
 - **Dennis Ritchie and Brian Kernighan** for creating the C programming language and establishing its foundations
 - **The open-source community** for maintaining excellent development tools and documentation
+
 ---
 
 ## Table of Contents
@@ -60,6 +72,22 @@ This repository represents a systematic, chapter-by-chapter implementation of al
 ---
 
 ## Repository Architecture
+
+```mermaid
+graph TD;
+    Root["📂 C-Programming-Modern-Approach"] --> P1["📚 Part I: Basic Features (Ch 1-10)"];
+    Root --> P2["📚 Part II: Advanced Features (Ch 11-17)"];
+    Root --> P3["📚 Part III: Standard Library (Ch 18-27)"];
+    
+    P1 --> Ch2["📁 Chapter-XX-*"];
+    
+    Ch2 --> Ex["📂 examples/"];
+    Ch2 --> Exc["📂 exercises/"];
+    Ch2 --> Proj["📂 projects/"];
+    
+    classDef folder fill:transparent,stroke:#333,stroke-width:2px;
+    class Root,P1,P2,P3,Ch2,Ex,Exc,Proj folder;
+```
 
 ### Directory Structure
 
@@ -400,22 +428,58 @@ gcc -std=c11 -Wall -Wextra -Wpedantic -Werror -O2 -g -o program source.c
 - `-O2`: Optimization level 2 for production builds
 - `-g`: Include debugging symbols
 
-**Style Guidelines:**
-- **Indentation:** 4 spaces (no tabs)
+**Style Guidelines (Aligned with Google C++ Style Guide adapted for C):**
+- **Indentation:** 2 spaces (no tabs) - per Google Style Guide formatting
 - **Line Length:** Maximum 80 characters
 - **Naming Conventions:** 
-  - Functions: `snake_case`
-  - Variables: `snake_case`
-  - Constants: `UPPER_CASE`
-  - Types: `PascalCase`
-- **Comments:** Comprehensive function documentation and inline explanations
+  - Functions & Variables: `snake_case`
+  - Constants & Macros: `UPPER_CASE`
+  - Types/Structs: `PascalCase`
+- **Comments:** Comprehensive function documentation (`/** ... */` style) and clear inline explanations.
+- **Bracing:** K&R style / Google style for braces and control statement spacing.
 
 ### Static Analysis
 
 All code passes the following static analysis tools:
 - `cppcheck`: Static analysis for C/C++
-- `clang-tidy`: Clang-based linter
+- `clang-tidy`: Clang-based linter (configured with standard rules)
 - `valgrind`: Memory leak detection (where applicable)
+
+---
+
+### 🏗️ Build Pipeline Architecture
+
+```mermaid
+flowchart LR
+    subgraph Source["Source Code"]
+        direction TB
+        A[".c files"]
+        B["Headers (.h)"]
+    end
+    
+    subgraph Toolchain["GCC Toolchain"]
+        C["Preprocessor (cpp)"]
+        D["Compiler (gcc)"]
+        E["Assembler (as)"]
+        F["Linker (ld)"]
+    end
+    
+    subgraph Artifacts["Build Artifacts"]
+        G["Object Files (.o)"]
+        H["Executable Binary"]
+    end
+    
+    A & B --> C
+    C -->|".i / .s"| D
+    D --> E
+    E --> G
+    G --> F
+    F -->|libc & static libs| H
+    
+    style Source fill:transparent,stroke:#333,stroke-dasharray: 5 5
+    style Toolchain fill:transparent,stroke:#333,stroke-dasharray: 5 5
+    style Artifacts fill:transparent,stroke:#333,stroke-dasharray: 5 5
+```
 
 ---
 
@@ -516,6 +580,23 @@ The textbook's careful progression from simple programs to complex systems is fo
 
 ## Development Workflow
 
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant A as Analysis
+    participant C as Code
+    participant T as Test
+    
+    U->>A: 1. Read & Grasp Problem
+    A->>C: 2. Design Data Structures & Alg.
+    C->>T: 3. Compile & Run `gcc`
+    alt Diagnostics Failed
+        T-->>C: Debug & Fix
+    else Tests Passed
+        T->>U: 4. Refactor & Document
+    end
+```
+
 ### Problem-Solving Protocol
 
 1. **Analysis:** Read and understand problem statement thoroughly
@@ -528,7 +609,7 @@ The textbook's careful progression from simple programs to complex systems is fo
 ### Version Control Strategy
 
 **Commit Guidelines:**
-```
+```text
 [Chapter XX] Brief description of change
 
 Detailed explanation of implementation, algorithms used,
@@ -544,9 +625,21 @@ Closes: #issue-number (if applicable)
 
 ---
 
+## 🤝 Contributing & Code of Conduct
+
+While this repository primarily serves as a personal academic reference, constructive feedback, bug reports, and optimization suggestions are highly appreciated to maintain the highest quality of solutions.
+
+1. **Issues:** If you spot an error, memory leak, or undefined behavior, please open an Issue with replication steps.
+2. **Pull Requests:** PRs should adhere strictly to the **Google Style Guide** constraints mentioned above. All submissions must pass CI/CD static analysis checks before merge consideration.
+3. **Academic Integrity:** Please do not submit pull requests that simply provide "easier" answers meant to bypass the pedagogical intent of the exercises.
+
+---
+
 ## License
 
-This project is licensed under the [GNU General Public License v3.0](LICENSE). See the [LICENSE](LICENSE) file for details.
+This project's original implementations are licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/). See the [LICENSE](LICENSE) file for details. 
+
+*(Note: Code adapted directly from the textbook retains the original copyright notice as stated in `book-notice.txt` provided by K.N. King).*
 
 ---
 
