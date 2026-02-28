@@ -17,5 +17,6 @@ int main(void)
     sum2=i1+i3+i5+j2+j4;
     total = 3*sum1 + sum2;
 
-    printf("Check digit: %d\n", 9 - (total % 10));
+    printf("Check digit: %d\n", 9 - ((total-1) % 10));
+    //alternative (10-(total%10))%10
 }
