@@ -630,7 +630,7 @@ Closes: #issue-number (if applicable)
 While this repository primarily serves as a personal academic reference, constructive feedback, bug reports, and optimization suggestions are highly appreciated to maintain the highest quality of solutions.
 
 1. **Issues:** If you spot an error, memory leak, or undefined behavior, please open an Issue with replication steps.
-2. **Pull Requests:** PRs should adhere strictly to the **Google Style Guide** constraints mentioned above. All submissions must pass CI/CD static analysis checks before merge consideration.
+2. **Pull Requests:**  All submissions must pass CI/CD static analysis checks before merge consideration.
 3. **Academic Integrity:** Please do not submit pull requests that simply provide "easier" answers meant to bypass the pedagogical intent of the exercises.
 
 ---
