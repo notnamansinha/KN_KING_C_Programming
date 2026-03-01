@@ -8,7 +8,7 @@
   <img src="https://img.shields.io/badge/Platform-Linux%20%7C%20macOS%20%7C%20Windows-lightgrey" alt="Platform"/>
 </div>
 
-**Author:** Naman   
+**Author:** Naman Kr. Sinha  
 **Course:** Independent Study  
 **Textbook:** K.N. King, *C Programming: A Modern Approach*, 2nd Edition  
 **Academic Year:** 2025-2026
