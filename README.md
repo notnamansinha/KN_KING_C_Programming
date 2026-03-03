@@ -1,5 +1,5 @@
 # C Programming: A Modern Approach
-## Complete Self-Learned Solutions and Implementation Repository
+## Complete Self-Learned Solutions/Implementation Repository
 
 <div align="center">
   <img src="https://img.shields.io/badge/Standard-C11-blue.svg" alt="C11"/>
