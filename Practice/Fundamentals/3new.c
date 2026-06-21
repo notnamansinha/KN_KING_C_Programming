@@ -1,3 +1,5 @@
+// Problem 3: Transformer Core Loss Polynomial (Concepts: evaluating polynomials, Horner's Rule)
+
 #include <stdio.h>
 
 int main(void)
@@ -13,5 +15,4 @@ int main(void)
     Loss = (((2*v + 3) * (v - 1)) * (v + 5)) * v;
 
     printf("the final calculated integer is: %d", &Loss);
-    
 }
