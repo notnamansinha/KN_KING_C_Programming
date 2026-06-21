@@ -1,3 +1,4 @@
+//Problem 4: BRTS Fare Machine (Concepts: Integer division /, Modulo %)
 #include <stdio.h>
 
 int main(void)
